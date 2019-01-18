@@ -1,17 +1,30 @@
 {
   "name": "food_app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Recipe Finder App",
   "main": "index.js",
   "dependencies": {
-    "webpack-cli": "^3.2.1",
-    "webpack": "^4.28.4"
+    "express": "^4.16.4",
+    "mongodb": "^3.1.12",
+    "nodemon": "^1.18.9"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -w"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dmalone93/Food_app_javascript_project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dmalone93/Food_app_javascript_project/issues"
+  },
+  "homepage": "https://github.com/Dmalone93/Food_app_javascript_project#readme"
 }
