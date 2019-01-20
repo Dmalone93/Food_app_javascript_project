@@ -6,7 +6,7 @@ const RecipeThumbnailView = require('./views/recipe_thumbnail_view.js')
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Javascript Loaded');
 
-const url = 'hhtp://localhost:3000/api/recipes';
+const url = 'http://localhost:3000/api/recipes';
 const recipes = new Recipes(url)
 recipes.getData();
 });
