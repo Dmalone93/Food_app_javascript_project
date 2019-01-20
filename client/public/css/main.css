@@ -1,0 +1,117 @@
+.searches {
+  background-image: url(https://www.alimentarium.org/en/system/files/styles/full_wide/private/thumbnails/image/%C2%A9Shutterstock_okanakdeniz_253707265_0.png?itok=7-ObFIdv);
+  position: relative;
+  min-height: 100%;
+  background-size: cover;
+  bac
+}
+
+
+
+.searches {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+
+.ingredient-collabsible {
+  margin-top: auto;
+
+}
+
+.diet-collabsible {
+  margin-top: auto;
+}
+
+.cuisine-collabsible {
+  margin-bottom: 1.2rem 0;
+}
+
+h1 {
+  font-family: snappy service NF;
+  font-size: 80px;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+
+
+.lbl-toggle {
+  display: block;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1rem;
+  color: rgb(255, 255, 255);
+  transition: all 0.25s ease-out;
+  cursor: auto;
+}
+
+.lbl-toggle:hover {
+  color: rgb(13, 14, 14);
+}
+
+.lbl-toggle::before {
+  content: ' ';
+  display: inline-block;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid currentColor;
+  vertical-align: middle;
+  margin-right: .7rem;
+  transform: translateY(-2px);
+  transition: transform .2s ease-out;
+}
+
+.toggle:checked + .lbl-toggle::before {
+  transform: rotate(90deg) translateX(-3px);
+}
+
+.toggle:checked + .lbl-toggle {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+
+.collapsible-content {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height .25s ease-in-out;
+}
+
+.toggle:checked + .lbl-toggle + .collapsible-content {
+  max-height: 350px;
+}
+
+.collapsible-content .content-inner {
+  background: rgba(250, 224, 66, .2);
+  border-bottom: 1px solid rgba(250, 224, 66, .45);
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  padding: .5rem 1rem;
+}
+
+
+.collapsible-diet {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height .25s ease-in-out;
+}
+
+.toggle:checked + .lbl-toggle + .collapsible-diet {
+  max-height: 350px;
+}
+
+.collapsible-diet .content-inner {
+  background: rgba(250, 224, 66, .2);
+  border-bottom: 1px solid rgba(250, 224, 66, .45);
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  padding: .5rem 1rem;
+}
