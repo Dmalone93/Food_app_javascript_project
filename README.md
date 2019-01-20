@@ -22,3 +22,17 @@ Different options available for generating recipes including a random function. 
 Extensions
 A plus button in the thumbnail images will allow a quick add function to add to the recipe book. Users can add comments to their recipes.
 
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
