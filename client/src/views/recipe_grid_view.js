@@ -15,13 +15,12 @@ RecipeGridView.prototype.bindEvents = function () {
     const selectedDiet = event.detail
     console.log(event.detail);
     PubSub.publish('Recipe:diet-selected', selectedDiet);
-    console.log(selectedDiet);
+    console.log('click',selectedDiet);
   })
 };
 
 RecipeGridView.prototype.render = function (recipes) {
-  // console.log(recipes);
-  this.container.innerHTML = '';
+  // this.container.innerHTML = '';
   const recipeThumbnailView = new RecipeThumbnailView(this.container);
   recipes.forEach((recipe) => recipeThumbnailView.render(recipe));
 };
