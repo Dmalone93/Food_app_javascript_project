@@ -7,7 +7,7 @@ const RecipeThumbnailView = function (container) {
 RecipeThumbnailView.prototype.render = function (recipe) {
 
   const recipeWrapper = document.createElement('div');
-  recipeWrapper.classList.add('recipe-container')
+  recipeWrapper.classList.add('all-recipes')
   recipeWrapper.addEventListener('click', (event) => {
     PubSub.publish('RecipeThumbnailView:recipe-selected', recipe)
     console.log('clicked', recipe);
@@ -15,7 +15,7 @@ RecipeThumbnailView.prototype.render = function (recipe) {
 
 
   const textWrapper = document.createElement('div');
-  textWrapper.id = 'text'
+  textWrapper.classList.add('text-wrapper');
 
   const name = this.createHeading(recipe.recipe_name);
   textWrapper.appendChild(name);
@@ -25,7 +25,7 @@ RecipeThumbnailView.prototype.render = function (recipe) {
   recipeWrapper.appendChild(textWrapper);
 
   this.container.appendChild(recipeWrapper);
-  console.log(recipeWrapper6);
+  console.log(recipeWrapper);
 
 };
 
@@ -36,7 +36,7 @@ RecipeThumbnailView.prototype.createHeading = function (textContent) {
 };
 RecipeThumbnailView.prototype.createImage = function (url) {
   const image = document.createElement('img');
-  image.id = 'recipeImage';
+  image.classList.add('recipe-image');
   image.src = url;
   return image;
 };
