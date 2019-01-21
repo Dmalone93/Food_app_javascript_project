@@ -1,10 +1,8 @@
-
 const PubSub = require('../helpers/pub_sub.js');
 
 const RecipeDetailView = function (container) {
   this.container = container;
 }
-
 
 RecipeDetailView.prototype.createRecipe = function (recipe) {
 
@@ -68,8 +66,9 @@ RecipeDetailView.prototype.ingredients = function (recipe) {
     return ingredientsDiv;
   };
 
-
-
+const RecipeDetailView = function (container) {
+  this.container = container;
+}
 //
 //
 // ingredients:

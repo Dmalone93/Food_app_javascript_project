@@ -5,18 +5,22 @@ const RecipeThumbnailView = function (container) {
 }
 
 RecipeThumbnailView.prototype.render = function (recipe) {
-  const recipesContainer = document.createElement('div');
-  recipesContainer.id = 'thumbnail'
+  const recipeWrapper = document.createElement('div');
+  recipeWrapper.id = 'thumbnail'
+  const textWrapper = document.createElement('div');
+  textWrapper.id = 'text'
+
 
   const name = this.createHeading(recipe.recipe_name);
-  recipesContainer.appendChild(name);
+  textWrapper.appendChild(name);
   console.log(name);
 
 
   const image = this.createImage(recipe.image);
-  recipesContainer.appendChild(image);
+  recipeWrapper.appendChild(image);
+  recipeWrapper.appendChild(textWrapper);
 
-
+  this.container.appendChild(recipeWrapper);
 
 };
 
@@ -26,9 +30,6 @@ RecipeThumbnailView.prototype.createHeading = function (textContent) {
   return heading;
 };
 
-
-
-
 RecipeThumbnailView.prototype.createImage = function (url) {
   const image = document.createElement('img');
   image.id = 'recipeImage';
@@ -36,8 +37,6 @@ RecipeThumbnailView.prototype.createImage = function (url) {
   return image;
   console.log(image);
 };
-
-
 
 
 RecipeThumbnailView.prototype.addRecipeToBook = function (recipeId) {
