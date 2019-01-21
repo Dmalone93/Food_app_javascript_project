@@ -12,10 +12,11 @@ RecipeThumbnailView.prototype.render = function (recipe) {
   recipesContainer.appendChild(name);
   console.log(name);
 
+
   const image = this.createImage(recipe.image);
   recipesContainer.appendChild(image);
 
-  this.container.appendChild(recipesContainer);
+
 
 };
 

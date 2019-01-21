@@ -6,6 +6,9 @@ const Recipes = require('./models/recipes.js');
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Javascript Loaded');
+  const header = document.querySelector('.searches');
+  console.log(header);
+  header.style.backgroundImage = "url('./images/vegetables.jpg')"
 
   const url = 'http://localhost:3000/api/recipes';
   const recipes = new Recipes(url);
@@ -15,4 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
   const singleRecipe = document.querySelector('div#recipe-container');
   const recipeGridView = new RecipeGridView(recipesContainer, singleRecipe);
   recipeGridView.bindEvents();
+
 });
