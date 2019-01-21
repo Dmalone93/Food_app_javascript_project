@@ -1,4 +1,4 @@
-const PubSub = require('../helpers/pubsub.js');
+const PubSub = require('../helpers/pub_sub.js');
 
 const RecipeThumbnailView = function (container) {
   this.container = container;
@@ -11,8 +11,10 @@ RecipeThumbnailView.prototype.render = function (recipe) {
    const name = this.createHeading(recipe.recipe_name);
    recipesContainer.appendChild(name);
 
-   const image = this.createImage(image.image);
-   recipesContainer.appendChild(image);
+   const recipeImage = this.createImage('img');
+   recipeImage.src = recipe.image;
+   recipesContainer.appendChild(recipeImage);
+   console.log(recipeImage);
 
    this.container.appendChild(recipesContainer);
 
@@ -25,10 +27,10 @@ RecipeThumbnailView.prototype.createHeading = function (textContent) {
 };
 
 RecipeThumbnailView.prototype.createImage = function (url) {
-  const image = document.createElement('img');
-  image.src = recipe.image;
-  image.id = 'recipeImage'
-  return image;
+  const recipeImage = document.createElement('img');
+  recipeImage.src = url;
+  recipeImage.id = 'recipeImage'
+  return recipeImage;
 };
 
 RecipeThumbnailView.prototype.addRecipeToBook = function (recipeId) {

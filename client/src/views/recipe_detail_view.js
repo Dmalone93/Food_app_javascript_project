@@ -10,7 +10,7 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   const recipeDiv = document.createElement('div');
 
   const header = document.createElement('h1');
-  header.textContent = recipe.recipe_name);
+  header.textContent = recipe.recipe_name;
   recipeDiv.appendChild(header);
 
   const detailList = document.createElement('ul');

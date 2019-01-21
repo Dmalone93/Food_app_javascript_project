@@ -1,4 +1,4 @@
-const RequestHelper = require('../helpers/request_helper.js');
+const RequestHelper = require('../helpers/request_helpers.js');
 const PubSub = require('../helpers/pub_sub.js')
 
 const Recipes = function(url){
@@ -12,3 +12,11 @@ this.request.get().then((recipes) => {
 })
 .catch(console.error)
 }
+
+Recipes.prototype.bindEvents = function () {
+  PubSub.subscribe('Recipes:all-data', (event) => {
+    const allData = event.detail;
+  })
+}
+
+module.exports = Recipes;

@@ -8,11 +8,13 @@ const RecipeGridView = function (container) {
 RecipeGridView.prototype.bindEvents = function () {
   PubSub.subscribe('Recipes:all-data', (event) => {
     this.render(event.detail);
+    console.log(event.detail);
   });
 };
 
 RecipeGridView.prototype.render = function (recipes) {
-  this.container.innerHTML = '';
+  console.log(recipes);
+  // this.container.innerHTML = '';
   const recipeThumbnailView = new RecipeThumbnailView(this.container);
   recipes.forEach((recipe) => recipeThumbnailView.render(recipe));
 };
