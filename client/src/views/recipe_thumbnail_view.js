@@ -15,11 +15,10 @@ RecipeThumbnailView.prototype.render = function (recipe) {
   textWrapper.appendChild(name);
   console.log(name);
 
+
   const image = this.createImage(recipe.image);
   recipeWrapper.appendChild(image);
   recipeWrapper.appendChild(textWrapper);
-
-
 
   this.container.appendChild(recipeWrapper);
 

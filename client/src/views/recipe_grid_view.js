@@ -13,7 +13,7 @@ RecipeGridView.prototype.bindEvents = function () {
 };
 
 RecipeGridView.prototype.render = function (recipes) {
-  this.container.innerHTML = '';
+  // this.container.innerHTML = '';
   const recipeThumbnailView = new RecipeThumbnailView(this.container);
   recipes.forEach((recipe) => recipeThumbnailView.render(recipe));
 };
