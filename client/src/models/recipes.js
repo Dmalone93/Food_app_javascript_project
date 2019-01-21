@@ -1,4 +1,4 @@
-const RequestHelper = require('../helpers/request_helper.js');
+const RequestHelper = require('../helpers/request_helpers.js');
 const PubSub = require('../helpers/pub_sub.js')
 
 const Recipes = function(url){
@@ -12,3 +12,5 @@ this.request.get().then((recipes) => {
 })
 .catch(console.error)
 }
+
+module.exports = Recipes;

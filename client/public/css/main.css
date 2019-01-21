@@ -1,9 +1,7 @@
 .searches {
-  background-image: url(https://www.alimentarium.org/en/system/files/styles/full_wide/private/thumbnails/image/%C2%A9Shutterstock_okanakdeniz_253707265_0.png?itok=7-ObFIdv);
   position: relative;
   min-height: 100%;
   background-size: cover;
-  bac
 }
 
 
@@ -48,7 +46,7 @@ input[type='checkbox'] {
   text-transform: uppercase;
   text-align: center;
   padding: 1rem;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   transition: all 0.25s ease-out;
   cursor: auto;
 }
@@ -80,6 +78,7 @@ input[type='checkbox'] {
 
 
 .collapsible-content {
+  font-family: monospace;
   max-height: 0px;
   overflow: hidden;
   transition: max-height .25s ease-in-out;
@@ -90,7 +89,7 @@ input[type='checkbox'] {
 }
 
 .collapsible-content .content-inner {
-  background: rgba(250, 224, 66, .2);
+  background: rgba(6, 119, 122, 0.2);
   border-bottom: 1px solid rgba(250, 224, 66, .45);
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
@@ -109,9 +108,34 @@ input[type='checkbox'] {
 }
 
 .collapsible-diet .content-inner {
-  background: rgba(250, 224, 66, .2);
+  background: rgba(6, 119, 122, 0.2);
   border-bottom: 1px solid rgba(250, 224, 66, .45);
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   padding: .5rem 1rem;
+}
+
+#diet {
+  font-family: monospace;
+  display: block;
+  width: 115px;
+  height: 30px;
+  background: rgba(0, 161, 154, 0.57);
+  padding: 5px;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+}
+
+.input {
+  font-family: monospace;
+  color: white;
+  font-size: 14px;
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(0, 161, 154, 0.57);
 }

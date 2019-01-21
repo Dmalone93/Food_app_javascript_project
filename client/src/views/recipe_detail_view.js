@@ -10,7 +10,7 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   const recipeDiv = document.createElement('div');
 
   const header = document.createElement('h1');
-  header.textContent = recipe.recipe_name);
+  header.textContent = recipe.recipe_name;
   recipeDiv.appendChild(header);
 
   const detailList = document.createElement('ul');
@@ -27,6 +27,10 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   servings.textContent = `Servings: ${recipe.servings}`;
   recipeDiv.appendChild(servings);
 
+  // const diet  =
+  //
+  // const nutrition =
+
   return recipeDiv;
 };
 
@@ -38,14 +42,33 @@ RecipeDetailView.prototype.recipeImage = function (recipe) {
   recipeImage.src = recipe.image;
   imageDiv.appendChild(recipeImage);
 
+  return imageDiv;
+
 };
 
+RecipeDetailView.prototype.ingredients = function (recipe) {
+
+  const ingredientsDiv = document.createElement('div');
+
+  const ingHeader = document.createElement('h1');
+  ingHeader.textContent = `Ingredients`;
+  recipeDiv.appendChild(ingHeader);
+
+  const ingredients = document.createElement('ul');
+  ingredients.textContent = recipe.ingredients;
+  ingredientsDiv.appendChild(ingredients);
+  const list = new createList(recipe.ingredients);
+  recipe.ingredients.forEach((ingredient) => {
+    item = document.createElement('li')
+    item.textContent = ingredient
+    ingredients.appendChild(item);
+  });
+
+    return ingredientsDiv;
+  };
 
 
-//   const ingredients = this.createDetail(recipe.ingredients);
-//   singleContainer.appendChild(ingredients);
-//
-//
+
 //
 //
 // ingredients:
@@ -71,9 +94,5 @@ RecipeDetailView.prototype.recipeImage = function (recipe) {
 // ],
 //
 // cook_method:
-//
-// image:
-//
-//
-//
-// module.exports = RecipeDetailView;
+
+module.exports = RecipeDetailView;
