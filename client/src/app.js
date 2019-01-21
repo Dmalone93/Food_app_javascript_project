@@ -7,14 +7,18 @@ const Recipes = require('./models/recipes.js');
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Javascript Loaded');
 
+  const url = 'http://localhost:3000/api/recipes';
+  const recipes = new Recipes(url);
+  recipes.getData();
 
-const recipesContainer = document.querySelector('div#recipes');
-const recipeGridView = new RecipeGridView(recipesContainer);
-recipeGridView.bindEvents();
+  const recipesContainer = document.querySelector('div#recipes');
+  const singleRecipe = document.querySelector('div#recipe-container');
+  const recipeGridView = new RecipeGridView(recipesContainer, singleRecipe);
+  recipeGridView.bindEvents();
 
-const url = 'http://localhost:3000/api/recipes';
+  // const selectElement = document.querySelector('content-inner')
+  // const recipeSelectView = new RecipeSelectView(selectRecipe)
+  // recipeSelectView.bindEvents();
 
-const recipes = new Recipes(url);
-recipes.bindEvents();
-recipes.getData();
+
 });

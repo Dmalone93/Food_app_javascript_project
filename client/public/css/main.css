@@ -115,3 +115,10 @@ input[type='checkbox'] {
   border-bottom-right-radius: 7px;
   padding: .5rem 1rem;
 }
+
+div#recipes {
+
+  border: 1px solid black;
+  width: auto;
+  height: 1500px;
+}
