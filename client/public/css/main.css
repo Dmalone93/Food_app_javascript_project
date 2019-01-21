@@ -6,7 +6,18 @@
   bac
 }
 
+div#recipe-container {
+  display: flex;
+  flex-direction: row;
+}
 
+div#thumbnail {
+  width: 20%;
+  height: auto;
+  display: inline-block;
+  text-align: center;
+  font-family: helvetica
+}
 
 .searches {
   display: flex;

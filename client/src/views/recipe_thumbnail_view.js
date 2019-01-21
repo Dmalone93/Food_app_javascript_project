@@ -6,19 +6,14 @@ const RecipeThumbnailView = function (container) {
 
 RecipeThumbnailView.prototype.render = function (recipe) {
   const recipesContainer = document.createElement('div');
+  recipesContainer.id = 'thumbnail'
 
   const name = this.createHeading(recipe.recipe_name);
   recipesContainer.appendChild(name);
   console.log(name);
 
-
-
-
   const image = this.createImage(recipe.image);
   recipesContainer.appendChild(image);
-
-
-
 
   this.container.appendChild(recipesContainer);
 
@@ -35,7 +30,7 @@ RecipeThumbnailView.prototype.createHeading = function (textContent) {
 
 RecipeThumbnailView.prototype.createImage = function (url) {
   const image = document.createElement('img');
-  image.id = 'recipeImage'
+  image.id = 'recipeImage';
   image.src = url;
   return image;
   console.log(image);
