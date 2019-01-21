@@ -1,8 +1,9 @@
 const PubSub = require('../helpers/pub_sub.js');
 const RecipeThumbnailView = require('./recipe_thumbnail_view.js');
 
-const RecipeGridView = function (container) {
+const RecipeGridView = function (container, recipesContainer) {
   this.container = container;
+  this.recipesContainer = recipesContainer;
 };
 
 RecipeGridView.prototype.bindEvents = function () {
@@ -17,4 +18,4 @@ RecipeGridView.prototype.render = function (recipes) {
   recipes.forEach((recipe) => recipeThumbnailView.render(recipe));
 };
 
-module.exports = RecipeGridView
+module.exports = RecipeGridView;
