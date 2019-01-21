@@ -1,3 +1,10 @@
+# `#main-header-container {
+  margin: 5px;
+  position: relative;
+  display: inline-block;
+}
+
+
 .searches {
   position: relative;
   min-height: 100%;
@@ -6,17 +13,46 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+  padding: 5px;
 }
 
-div#recipe-container {
-  display: flex;
-  flex-direction: row;
+.recipe-image {
+  height: 300px;
+  width: 400px;
+  padding: 20px;
 }
 
-div#thumbnail {
-
+.all-recipes{
+  position: relative;
   display: inline-block;
-  font-family: helvetica;
+}
+
+
+.text-wrapper {
+  font-family: snappy service NF;
+  position: absolute;
+  bottom: 30px;
+  left:20px;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 360px;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 30px;
+  padding: 20px;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.all-recipes:hover .text-wrapper {
+  opacity: 1;
+}
+
+#thumbnail {
+  display: inline-block;
+  font-family: snappy service NF;
   position: relative;
   text-align: center;
   color: white;
@@ -32,6 +68,9 @@ div#thumbnail {
 .diet-collabsible {
   margin-top: auto;
 }
+.recipe-book {
+  margin-top: auto;
+}
 
 .cuisine-collabsible {
   margin-bottom: 1.2rem 0;
@@ -40,6 +79,7 @@ div#thumbnail {
 h1 {
   font-family: snappy service NF;
   font-size: 80px;
+  padding: 10px;
 }
 
 input[type='checkbox'] {
@@ -150,8 +190,9 @@ input[type='checkbox'] {
   border: none;
   background-color: rgba(0, 161, 154, 0.57);
 
-div#recipes {
+#recipes {
   border: 1px solid black;
   width: auto;
   height: 1500px;
+  margin: 5px;
 }

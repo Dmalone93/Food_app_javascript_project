@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const recipes = new Recipes(url);
   recipes.getData();
 
-  const recipesContainer = document.querySelector('div#recipes');
+  const container = document.querySelector('div#recipes');
   const singleRecipe = document.querySelector('div#recipe-container');
-  const recipeGridView = new RecipeGridView(recipesContainer, singleRecipe);
+  const recipeGridView = new RecipeGridView(container, singleRecipe);
   recipeGridView.bindEvents();
 
   const recipeDetailView = new RecipeDetailView();
