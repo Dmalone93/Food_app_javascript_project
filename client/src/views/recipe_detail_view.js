@@ -4,6 +4,12 @@ const RecipeDetailView = function (container) {
   this.container = container;
 }
 
+RecipeDetailView.prototype.bindEvents = function(){
+  PubSub.subscribe('RecipeGridView:recipe-selected', (event) => {
+    console.log(event);
+    this.createRecipe(event.detail)
+  })
+};
 
 RecipeDetailView.prototype.createRecipe = function (recipe) {
 
@@ -27,54 +33,75 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   servings.textContent = `Servings: ${recipe.servings}`;
   recipeDiv.appendChild(servings);
 
+  const diet  = document.createElement('p');
+  diet.textContent = `Diet type ${recipe.diet}`
+  recipeDiv.appendChild(diet);
+
+  const nutrition = document.createElement('p');
+  nutrition.textContent = `nutrition ${nutrition.nutritional_information}`
+  recipeDiv.appendChild(nutrition)
+
   return recipeDiv;
-};
-
-RecipeDetailView.prototype.recipeImage = function (recipe) {
-
-  const imageDiv = document.createElement('div');
-
-  const recipeImage = document.createElement('img')
-  recipeImage.src = recipe.image;
-  imageDiv.appendChild(recipeImage);
-
 };
 
 module.exports = RecipeDetailView;
 
 
-//   const ingredients = this.createDetail(recipe.ingredients);
-//   singleContainer.appendChild(ingredients);
+// RecipeDetailView.prototype.recipeImage = function (recipe) {
 //
+//   const imageDiv = document.createElement('div');
 //
+//   const recipeImage = document.createElement('img')
+//   recipeImage.src = recipe.image;
+//   imageDiv.appendChild(recipeImage);
 //
+//   return imageDiv;
 //
-// ingredients:
-// [
-//   "1 tbsp honey"
+// };
+
+// RecipeDetailView.prototype.ingredients = function (recipe) {
 //
-// ],
+//   const ingredientsDiv = document.createElement('div');
 //
-// prep_time: 20,
-// cook_time: 60,
-// servings: 12,
+//   const ingHeader = document.createElement('h1');
+//   ingHeader.textContent = `Ingredients`;
+//   recipeDiv.appendChild(ingHeader);
 //
-// nutritional_information:
-// {
-//   kcal: 112,
-//   fat: "2g",
-//   saturates: "1g",
-//   carbs: "17g"
-// },
+//   const ingredients = document.createElement('ul');
+//   ingredients.textContent = recipe.ingredients;
+//   ingredientsDiv.appendChild(ingredients);
+//   const list = new createList(recipe.ingredients);
+//   recipe.ingredients.forEach((ingredient) => {
+//     item = document.createElement('li')
+//     item.textContent = ingredient
+//     ingredients.appendChild(item);
+//   });
 //
-// diet:[
-//   "vegetarian"
-// ],
-//
-// cook_method:
-//
-// image:
-//
-//
-//
-// module.exports = RecipeDetailView;
+//     return ingredientsDiv;
+//   };
+// }
+// //
+// //
+// // ingredients:
+// // [
+// //   "1 tbsp honey"
+// //
+// // ],
+// //
+// // prep_time: 20,
+// // cook_time: 60,
+// // servings: 12,
+// //
+// // nutritional_information:
+// // {
+// //   kcal: 112,
+// //   fat: "2g",
+// //   saturates: "1g",
+// //   carbs: "17g"
+// // },
+// //
+// // diet:[
+// //   "vegetarian"
+// // ],
+// //
+// // cook_method:

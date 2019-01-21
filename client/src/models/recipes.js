@@ -17,7 +17,6 @@ Recipes.prototype.bindEvents = function () {
 Recipes.prototype.getData = function(){
 this.request.get()
 .then((recipes) => {
-  // console.log(recipes);
   PubSub.publish('Recipes:all-data', recipes)
 })
 .catch(console.error);
