@@ -2,6 +2,10 @@
   position: relative;
   min-height: 100%;
   background-size: cover;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 div#recipe-container {
@@ -15,13 +19,6 @@ div#thumbnail {
   display: inline-block;
   text-align: center;
   font-family: helvetica
-}
-
-.searches {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
 }
 
 
@@ -126,7 +123,7 @@ input[type='checkbox'] {
   padding: .5rem 1rem;
 }
 
-views
+
 #diet {
   font-family: monospace;
   display: block;
