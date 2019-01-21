@@ -17,5 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
   recipeGridView.bindEvents();
 
 
+const recipesContainer = document.querySelector('div#recipes');
+const recipeGridView = new RecipeGridView(recipesContainer);
+recipeGridView.bindEvents();
+
+const url = 'http://localhost:3000/api/recipes';
+
+const recipes = new Recipes(url)
+recipes.bindEvents();
+recipes.getData();
 
 });
