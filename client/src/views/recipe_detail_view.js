@@ -28,9 +28,13 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   img.src = recipe.image;
   recipeDiv.appendChild(img);
 
+
+
+
   const header = document.createElement('h1');
   header.textContent = recipe.recipe_name;
   recipeDiv.appendChild(header);
+
 
   // 1. Create a button
   const button = document.createElement('button');
@@ -43,17 +47,24 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   })
   recipeDiv.appendChild(button);
 
+
   const prepTime = document.createElement('li');
   prepTime.textContent = `Preperation Time: ${recipe.prep_time}`;
   recipeDiv.appendChild(prepTime);
+
+
 
   const cookTime = document.createElement('li');
   cookTime.textContent = `Cook Time: ${recipe.cook_time}`;
   recipeDiv.appendChild(cookTime);
 
+
+
   const servings = document.createElement('li');
   servings.textContent = `Servings: ${recipe.servings}`;
   recipeDiv.appendChild(servings);
+
+
 
   const cookMethod = document.createElement('p');
   cookMethod.textContent = `Method: ${recipe.cook_method}`;
@@ -69,16 +80,13 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   recipeDiv.appendChild(ingredientList)
 
 
+
   const diet  = document.createElement('p');
   diet.textContent = `Diet type: ${recipe.diet}`
   recipeDiv.appendChild(diet);
 
-  const nutritionList = document.createElement('ul');
-  for (let i=0; i < recipe.nutritional_information.length;i++){
-    informationItem.textContent = recipe.nutritional_information[i]
-    nutritionList.appendChild(informationItem)
-  };
-  recipeDiv.appendChild(nutritionList)
+
+
 
 
   this.container.appendChild(recipeDiv)
