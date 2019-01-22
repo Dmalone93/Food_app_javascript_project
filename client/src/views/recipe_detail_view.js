@@ -30,7 +30,6 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
 
 
 
-
   const header = document.createElement('h1');
   header.textContent = recipe.recipe_name;
   recipeDiv.appendChild(header);
@@ -46,7 +45,6 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
     PubSub.publish('RecipeDetailView:recipe-submitted', event.target.value)
   })
   recipeDiv.appendChild(button);
-
 
   const prepTime = document.createElement('li');
   prepTime.textContent = `Preperation Time: ${recipe.prep_time}`;

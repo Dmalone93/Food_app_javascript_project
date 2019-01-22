@@ -14,6 +14,7 @@ app.use(parser.json());
 MongoClient.connect('mongodb://localhost:27017')
 .then((client) => {
   const db = client.db('foods');
+
   const recipeBookCollection = db.collection('recipeBook');
   const recipeBookRouter = createRouter(recipeBookCollection);
   app.use('/api/recipeBook', recipeBookRouter);

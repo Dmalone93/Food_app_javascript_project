@@ -13,6 +13,10 @@ RecipeGridView.prototype.bindEvents = function () {
   const allRecipes = this.render(event.detail);
   return allRecipes;
   });
+  PubSub.subscribe('Recipes:all-book-data', (event) => {
+  const allBookRecipes = this.render(event.detail);
+  return allBookRecipes;
+  });
 };
 
 //check if all diet types in the recipes in the render function are the same. Then you dont need to limit the recipes. If any of diet types are different from each other.
@@ -32,7 +36,6 @@ RecipeGridView.prototype.limitRecipes = function(recipes){
     for(let i=0; i < 6; i++){
       //randomnumber = a random 6 numbers up to the length of the recipes array.
       const randomNumber = Math.floor(Math.random() * recipes.length -1) + 1
-      console.log(recipes.length);
       //push those 6 index numbers into array
       randomNumbers.push(randomNumber);
     };
