@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const recipeGridView = new RecipeGridView(recipesContainer, singleRecipe);
   recipeGridView.bindEvents();
 
-  const recipeDetailView = new RecipeDetailView();
+  const recipeDetailView = new RecipeDetailView(singleRecipe);
   recipeDetailView.bindEvents();
 
 });

@@ -25,7 +25,6 @@ RecipeThumbnailView.prototype.render = function (recipe) {
   recipeWrapper.appendChild(textWrapper);
 
   this.container.appendChild(recipeWrapper);
-  console.log(recipeWrapper6);
 
 };
 

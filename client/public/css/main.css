@@ -8,6 +8,11 @@
   justify-content: space-between;
 }
 
+li {
+list-style-type: disc;
+width: 90%;
+}
+
 div#recipe-container {
   display: flex;
   flex-direction: row;
