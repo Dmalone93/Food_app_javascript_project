@@ -47,7 +47,6 @@ RecipeGridView.prototype.render = function (recipes) {
 };
 
 RecipeGridView.prototype.limitRecipes = function(recipes){
-  console.log('recipes', recipes);
   const randomNumbers = [];
   for(let i=0; i < 6; i++){
     const randomNumber = Math.floor(Math.random() * recipes.length)
