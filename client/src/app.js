@@ -6,7 +6,7 @@ const SelectView = require('./views/select_view.js');
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Javascript Loaded');
+  ('Javascript Loaded');
   const header = document.querySelector('.searches');
   header.style.backgroundImage = "url('./images/vegetables.jpg')"
 
@@ -16,13 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const url = 'http://localhost:3000/api/recipes';
 
   const recipeBookUrl = 'http://localhost:3000/api/recipeBook'
-  console.log(recipeBookUrl);
 
   const recipes = new Recipes(url, recipeBookUrl);
   recipes.getData();
   recipes.getBookData();
   recipes.bindEvents();
-  
+
 
 
   const container = document.querySelector('div.recipes');

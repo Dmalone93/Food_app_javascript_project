@@ -5,11 +5,9 @@ const RecipeDetailView = function (container) {
 }
 
 RecipeDetailView.prototype.bindEvents = function(){
-  this.container.addEventListener('click', (event) => {
-    console.log(event.target.value);
-    // this.handleSubmit(event);
-    // PubSub.publish('RecipeDetail:index', event.target.index)
-  });
+  // this.container.addEventListener('click', (event) => {
+  //   (event.target.value);
+  // });
 
   PubSub.subscribe('RecipeThumbnailView:recipe-selected', (event) => {
     this.createRecipe(event.detail)
@@ -19,7 +17,6 @@ RecipeDetailView.prototype.bindEvents = function(){
 
 
 RecipeDetailView.prototype.createRecipe = function (recipe) {
-
   this.container.innerHTML = ''
 
   const recipeDiv = document.createElement('div');
@@ -29,22 +26,10 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   recipeDiv.appendChild(img);
 
 
-
   const header = document.createElement('h1');
   header.textContent = recipe.recipe_name;
   recipeDiv.appendChild(header);
 
-
-  // 1. Create a button
-  const button = document.createElement('button');
-  button.classList.add('add-recipe');
-  button.value = recipe.id;
-  // 2. Add a click event listener to the button
-  button.addEventListener('click', (event) => {
-    console.log('button clicked', event.target.value);
-    PubSub.publish('RecipeDetailView:recipe-submitted', event.target.value)
-  })
-  recipeDiv.appendChild(button);
 
   const prepTime = document.createElement('li');
   prepTime.textContent = `Preperation Time: ${recipe.prep_time}`;
@@ -70,7 +55,6 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
 
   const ingredientList = document.createElement('ul');
   for (let i = 0; i < recipe.ingredients.length; i++){
-    // console.log(recipe.ingredients[i]);
     const ingredientItem = document.createElement('li')
     ingredientItem.textContent = `${recipe.ingredients[i]}`
     ingredientList.appendChild(ingredientItem)
@@ -78,15 +62,23 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   recipeDiv.appendChild(ingredientList)
 
 
-
   const diet  = document.createElement('p');
   diet.textContent = `Diet type: ${recipe.diet}`
   recipeDiv.appendChild(diet);
 
 
+  const button = document.createElement('button');
+  button.classList.add('add-recipe');
+  button.value = recipe.id;
+
+  button.addEventListener('click', (event) => {
+    PubSub.publish('RecipeDetailView:recipe-submitted', event.target.value)
+    recipeDiv.appendChild(button);
+  });
 
 
 
+  ('container', this.container);
   this.container.appendChild(recipeDiv)
 };
 
