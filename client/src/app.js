@@ -9,9 +9,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.searches');
   header.style.backgroundImage = "url('./images/vegetables.jpg')"
 
+
+
+
   const url = 'http://localhost:3000/api/recipes';
-  const recipes = new Recipes(url);
+  const recipeBookUrl = 'http://localhost:3000/api/recipeBook'
+  console.log(recipeBookUrl);
+
+  const recipes = new Recipes(url, recipeBookUrl);
   recipes.getData();
+  recipes.getBookData();
+
+
+
+
 
   const container = document.querySelector('div#recipes');
   const singleRecipe = document.querySelector('div#recipe-container');

@@ -23,11 +23,9 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
 
 
 
-
   const header = document.createElement('h1');
   header.textContent = recipe.recipe_name;
   recipeDiv.appendChild(header);
-
 
 
 
