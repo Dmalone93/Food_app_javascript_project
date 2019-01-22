@@ -24,11 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  const container = document.querySelector('div.recipes');
-  const singleRecipe = document.querySelector('div#recipe-container');
-  const recipeGridView = new RecipeGridView(container, singleRecipe);
+  const container = document.querySelector('#recipe-container');
+
+  const recipeGridView = new RecipeGridView(container);
   recipeGridView.bindEvents();
 
+  const singleRecipe = document.querySelector('div#recipe-container');
   const recipeDetailView = new RecipeDetailView(singleRecipe);
   recipeDetailView.bindEvents();
 
