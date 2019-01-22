@@ -10,6 +10,7 @@ const Recipes = function(url, recipeBookUrl){
   this.request = new RequestHelper(this.url);
   this.bookRequest = new RequestHelper(this.recipeBookUrl);
   this.recipes = [];
+  this.originalRecipe = null;
 }
 
 Recipes.prototype.bindEvents = function () {
@@ -18,10 +19,22 @@ Recipes.prototype.bindEvents = function () {
     const foundDiet = this.findByDiet(diet);
     PubSub.publish('Recipes:recipe-by-diet', foundDiet)
   })
-  PubSub.subscribe('RecipeDetailView:recipe-submitted', (event) => {
-    this.createBook(event.detail);
+  PubSub.subscribe('RecipeDetailView:recipe-added', (event) => {
+    const selectedIndex = event.detail;
+    const recipe = this.createBook(selectedIndex);
+    console.log(event.detail);
+    PubSub.publish('Recipes:added-from-api', recipe)
+    console.log(recipe);
   });
 };
+
+Recipes.prototype.createBook = function (searchName) {
+  const foundRecipe = this.recipes.find((currentRecipe) => {
+    return currentRecipe.name === searchName;
+  })
+  return foundRecipe;
+};
+
 
 
 Recipes.prototype.getBookData = function(){

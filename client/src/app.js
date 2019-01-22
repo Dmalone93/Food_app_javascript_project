@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   recipes.getData();
   recipes.getBookData();
   recipes.bindEvents();
+  recipes.createBook();
 
 
 
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const recipeDetailView = new RecipeDetailView(singleRecipe);
   recipeDetailView.bindEvents();
+
 
   const selectElement = document.querySelector('.content-inner-diet');
   const selectView = new SelectView(selectElement);
