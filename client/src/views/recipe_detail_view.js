@@ -5,11 +5,18 @@ const RecipeDetailView = function (container) {
 }
 
 RecipeDetailView.prototype.bindEvents = function(){
-  PubSub.subscribe('RecipeThumbnailView:recipe-selected', (event) => {
+  this.container.addEventListener('click', (event) => {
+    console.log(event.target.value);
+    // this.handleSubmit(event);
+    // PubSub.publish('RecipeDetail:index', event.target.index)
+  });
 
+  PubSub.subscribe('RecipeThumbnailView:recipe-selected', (event) => {
     this.createRecipe(event.detail)
-  })
+  });
+
 };
+
 
 RecipeDetailView.prototype.createRecipe = function (recipe) {
 
@@ -28,6 +35,16 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   recipeDiv.appendChild(header);
 
 
+  // 1. Create a button
+  const button = document.createElement('button');
+  button.classList.add('add-recipe');
+  button.value = recipe.id;
+  // 2. Add a click event listener to the button
+  button.addEventListener('click', (event) => {
+    console.log('button clicked', event.target.value);
+    PubSub.publish('RecipeDetailView:recipe-submitted', event.target.value)
+  })
+  recipeDiv.appendChild(button);
 
   const prepTime = document.createElement('li');
   prepTime.textContent = `Preperation Time: ${recipe.prep_time}`;
@@ -50,8 +67,6 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   const cookMethod = document.createElement('p');
   cookMethod.textContent = `Method: ${recipe.cook_method}`;
   recipeDiv.appendChild(cookMethod);
-
-
 
   const ingredientList = document.createElement('ul');
   for (let i = 0; i < recipe.ingredients.length; i++){

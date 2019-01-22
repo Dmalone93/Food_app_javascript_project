@@ -1,3 +1,6 @@
-const RecipeBookView = function(){
-  
-}
+const PubSub = require('../helpers/pub_sub.js');
+
+const RecipeBookView = function () {
+
+};
+

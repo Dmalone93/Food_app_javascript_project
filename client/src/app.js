@@ -19,9 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const recipes = new Recipes(url, recipeBookUrl);
   recipes.getData();
   recipes.getBookData();
-
-
-
+  recipes.bindEvents();
+  
 
 
   const container = document.querySelector('div#recipes');
