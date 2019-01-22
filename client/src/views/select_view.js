@@ -14,9 +14,8 @@ SelectView.prototype.bindEvents = function(){
   })
 }
 
-
-
 SelectView.prototype.populate = function(recipes){
+
   const uniqueDiets = []
   recipes.forEach((recipe) => {
     if (!uniqueDiets.includes(recipe.diet)){

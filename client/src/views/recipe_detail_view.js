@@ -5,9 +5,6 @@ const RecipeDetailView = function (container) {
 }
 
 RecipeDetailView.prototype.bindEvents = function(){
-  // this.container.addEventListener('click', (event) => {
-  //   (event.target.value);
-  // });
 
   PubSub.subscribe('RecipeThumbnailView:recipe-selected', (event) => {
     this.createRecipe(event.detail)
