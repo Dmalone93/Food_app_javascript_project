@@ -12,9 +12,6 @@ RecipeGridView.prototype.bindEvents = function () {
   PubSub.subscribe('Recipes:all-data', (event) => {
     this.render(event.detail);
   });
-   recipe = this.renderRecipe(this.singleRecipe)
-   console.log(event);
-  PubSub.publish('RecipeGridView:recipe-selected', recipe);
 };
 
 RecipeGridView.prototype.render = function (recipes) {

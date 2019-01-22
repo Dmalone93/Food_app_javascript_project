@@ -5,21 +5,25 @@ const RecipeDetailView = function (container) {
 }
 
 RecipeDetailView.prototype.bindEvents = function(){
-  PubSub.subscribe('RecipeGridView:recipe-selected', (event) => {
-    console.log(event);
+  PubSub.subscribe('RecipeThumbnailView:recipe-selected', (event) => {
+
     this.createRecipe(event.detail)
   })
 };
 
 RecipeDetailView.prototype.createRecipe = function (recipe) {
 
+  this.container.innerHTML = ''
+
   const recipeDiv = document.createElement('div');
+
+  const img = document.createElement('img');
+  img.src = recipe.image;
+  recipeDiv.appendChild(img);
 
   const header = document.createElement('h1');
   header.textContent = recipe.recipe_name;
   recipeDiv.appendChild(header);
-
-  const detailList = document.createElement('ul');
 
   const prepTime = document.createElement('li');
   prepTime.textContent = `Preperation Time: ${recipe.prep_time}`;
@@ -33,75 +37,35 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   servings.textContent = `Servings: ${recipe.servings}`;
   recipeDiv.appendChild(servings);
 
+  const cookMethod = document.createElement('p');
+  cookMethod.textContent = `Method: ${recipe.cook_method}`;
+  recipeDiv.appendChild(cookMethod);
+
+
+
+  const ingredientList = document.createElement('ul');
+  for (let i = 0; i < recipe.ingredients.length; i++){
+    // console.log(recipe.ingredients[i]);
+    const ingredientItem = document.createElement('li')
+    ingredientItem.textContent = `${recipe.ingredients[i]}`
+    ingredientList.appendChild(ingredientItem)
+  };
+  recipeDiv.appendChild(ingredientList)
+
+
   const diet  = document.createElement('p');
-  diet.textContent = `Diet type ${recipe.diet}`
+  diet.textContent = `Diet type: ${recipe.diet}`
   recipeDiv.appendChild(diet);
 
-  const nutrition = document.createElement('p');
-  nutrition.textContent = `nutrition ${nutrition.nutritional_information}`
-  recipeDiv.appendChild(nutrition)
+  const nutritionList = document.createElement('ul');
+  for (let i=0; i < recipe.nutritional_information.length;i++){
+    informationItem.textContent = recipe.nutritional_information[i]
+    nutritionList.appendChild(informationItem)
+  };
+  recipeDiv.appendChild(nutritionList)
 
-  return recipeDiv;
+
+  this.container.appendChild(recipeDiv)
 };
 
 module.exports = RecipeDetailView;
-
-
-// RecipeDetailView.prototype.recipeImage = function (recipe) {
-//
-//   const imageDiv = document.createElement('div');
-//
-//   const recipeImage = document.createElement('img')
-//   recipeImage.src = recipe.image;
-//   imageDiv.appendChild(recipeImage);
-//
-//   return imageDiv;
-//
-// };
-
-// RecipeDetailView.prototype.ingredients = function (recipe) {
-//
-//   const ingredientsDiv = document.createElement('div');
-//
-//   const ingHeader = document.createElement('h1');
-//   ingHeader.textContent = `Ingredients`;
-//   recipeDiv.appendChild(ingHeader);
-//
-//   const ingredients = document.createElement('ul');
-//   ingredients.textContent = recipe.ingredients;
-//   ingredientsDiv.appendChild(ingredients);
-//   const list = new createList(recipe.ingredients);
-//   recipe.ingredients.forEach((ingredient) => {
-//     item = document.createElement('li')
-//     item.textContent = ingredient
-//     ingredients.appendChild(item);
-//   });
-//
-//     return ingredientsDiv;
-//   };
-// }
-// //
-// //
-// // ingredients:
-// // [
-// //   "1 tbsp honey"
-// //
-// // ],
-// //
-// // prep_time: 20,
-// // cook_time: 60,
-// // servings: 12,
-// //
-// // nutritional_information:
-// // {
-// //   kcal: 112,
-// //   fat: "2g",
-// //   saturates: "1g",
-// //   carbs: "17g"
-// // },
-// //
-// // diet:[
-// //   "vegetarian"
-// // ],
-// //
-// // cook_method:

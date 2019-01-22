@@ -16,6 +16,11 @@
   padding: 5px;
 }
 
+
+li {
+list-style-type: disc;
+width: 90%;
+}
 .recipe-image {
   height: 300px;
   width: 400px;
@@ -25,6 +30,7 @@
 .all-recipes{
   position: relative;
   display: inline-block;
+
 }
 
 
