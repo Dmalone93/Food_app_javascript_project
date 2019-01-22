@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const url = 'http://localhost:3000/api/recipes';
   const recipes = new Recipes(url);
   recipes.getData();
+  recipes.bindEvents();
 
   const container = document.querySelector('div#recipes');
   const singleRecipe = document.querySelector('div#recipe-container');
