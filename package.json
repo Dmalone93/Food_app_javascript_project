@@ -3,28 +3,32 @@
   "version": "1.0.0",
   "description": "Recipe Finder App",
   "main": "index.js",
-  "dependencies": {
-    "express": "^4.16.4",
-    "mongodb": "^3.1.12",
-    "nodemon": "^1.18.9"
-  },
-  "devDependencies": {
-    "webpack": "^4.28.4",
-    "webpack-cli": "^3.2.1"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -w"
+    "build": "webpack -w",
+    "server:dev": "nodemon server/server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dmalone93/Food_app_javascript_project.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Dmalone93/Food_app_javascript_project/issues"
   },
-  "homepage": "https://github.com/Dmalone93/Food_app_javascript_project#readme"
+  "homepage": "https://github.com/Dmalone93/Food_app_javascript_project#readme",
+  "devDependencies": {
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect": "^3.6.6",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.12",
+    "nodemon": "^1.18.9",
+    "serve-static": "^1.13.2"
+  }
 }

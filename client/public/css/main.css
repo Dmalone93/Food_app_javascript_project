@@ -1,0 +1,204 @@
+# `#main-header-container {
+  margin: 5px;
+  position: relative;
+  display: inline-block;
+}
+
+
+.searches {
+  position: relative;
+  min-height: 100%;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+
+li {
+list-style-type: disc;
+width: 90%;
+}
+.recipe-image {
+  height: 300px;
+  width: 400px;
+  padding: 20px;
+}
+
+.all-recipes{
+  position: relative;
+  display: inline-block;
+
+}
+
+
+.text-wrapper {
+  font-family: snappy service NF;
+  position: absolute;
+  bottom: 30px;
+  left:20px;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 360px;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 30px;
+  padding: 20px;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.all-recipes:hover .text-wrapper {
+  opacity: 1;
+}
+
+#thumbnail {
+  display: inline-block;
+  font-family: snappy service NF;
+  position: relative;
+  text-align: center;
+  color: white;
+  background: rgba(244, 179, 66) linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.6) 100%);
+}
+
+
+.ingredient-collabsible {
+  margin-top: auto;
+
+}
+
+.diet-collabsible {
+  margin-top: auto;
+}
+.recipe-book {
+  margin-top: auto;
+}
+
+.cuisine-collabsible {
+  margin-bottom: 1.2rem 0;
+}
+
+h1 {
+  font-family: snappy service NF;
+  font-size: 80px;
+  padding: 10px;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+
+
+.lbl-toggle {
+  display: block;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1rem;
+  color: rgb(0, 0, 0);
+  transition: all 0.25s ease-out;
+  cursor: auto;
+}
+
+.lbl-toggle:hover {
+  color: rgb(13, 14, 14);
+}
+
+.lbl-toggle::before {
+  content: ' ';
+  display: inline-block;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid currentColor;
+  vertical-align: middle;
+  margin-right: .7rem;
+  transform: translateY(-2px);
+  transition: transform .2s ease-out;
+}
+
+.toggle:checked + .lbl-toggle::before {
+  transform: rotate(90deg) translateX(-3px);
+}
+
+.toggle:checked + .lbl-toggle {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+
+.collapsible-content {
+  font-family: monospace;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height .25s ease-in-out;
+}
+
+.toggle:checked + .lbl-toggle + .collapsible-content {
+  max-height: 350px;
+}
+
+.collapsible-content .content-inner {
+  background: rgba(6, 119, 122, 0.2);
+  border-bottom: 1px solid rgba(250, 224, 66, .45);
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  padding: .5rem 1rem;
+}
+
+
+.collapsible-diet {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height .25s ease-in-out;
+}
+
+.toggle:checked + .lbl-toggle + .collapsible-diet {
+  max-height: 350px;
+}
+
+.collapsible-diet .content-inner {
+  background: rgba(6, 119, 122, 0.2);
+  border-bottom: 1px solid rgba(250, 224, 66, .45);
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  padding: .5rem 1rem;
+}
+
+
+#diet {
+  font-family: monospace;
+  display: block;
+  width: 115px;
+  height: 30px;
+  background: rgba(0, 161, 154, 0.57);
+  padding: 5px;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+}
+
+.input {
+  font-family: monospace;
+  color: white;
+  font-size: 14px;
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(0, 161, 154, 0.57);
+
+#recipes {
+  border: 1px solid black;
+  width: auto;
+  height: 1500px;
+  margin: 5px;
+}
