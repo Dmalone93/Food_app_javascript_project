@@ -13,6 +13,12 @@ RecipeGridView.prototype.bindEvents = function () {
     this.render(event.detail);
     // console.log(event.detail);
   });
+
+  PubSub.subscribe('Recipes:recipe-by-diet', (event) => {
+    console.log('hello', event.detail);
+    this.render(event.detail);
+  })
+
    recipe = this.renderRecipe(this.singleRecipe)
    console.log(event);
   PubSub.publish('RecipeGridView:recipe-selected', recipe);
