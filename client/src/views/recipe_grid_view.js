@@ -10,6 +10,20 @@ const RecipeGridView = function (container, singleRecipe) {
 
 RecipeGridView.prototype.bindEvents = function () {
   PubSub.subscribe('Recipes:all-data', (event) => {
+
+    this.render(event.detail);
+    // console.log(event.detail);
+  });
+
+  PubSub.subscribe('Recipes:recipe-by-diet', (event) => {
+    console.log('hello', event.detail);
+    this.render(event.detail);
+  })
+
+   recipe = this.renderRecipe(this.singleRecipe)
+   console.log(event);
+  PubSub.publish('RecipeGridView:recipe-selected', recipe);
+
   const allRecipes = this.render(event.detail);
   return allRecipes;
   });
@@ -17,6 +31,7 @@ RecipeGridView.prototype.bindEvents = function () {
   const allBookRecipes = this.render(event.detail);
   return allBookRecipes;
   });
+
 };
 
 //check if all diet types in the recipes in the render function are the same. Then you dont need to limit the recipes. If any of diet types are different from each other.
