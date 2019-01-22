@@ -10,17 +10,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.searches');
   header.style.backgroundImage = "url('./images/vegetables.jpg')"
 
+
+
+
   const url = 'http://localhost:3000/api/recipes';
-  const recipes = new Recipes(url);
-  recipes.bindEvents();
+
+  const recipeBookUrl = 'http://localhost:3000/api/recipeBook'
+  console.log(recipeBookUrl);
+
+  const recipes = new Recipes(url, recipeBookUrl);
   recipes.getData();
+  recipes.getBookData();
+  recipes.bindEvents();
+  
+
 
   const container = document.querySelector('div.recipes');
   const singleRecipe = document.querySelector('div#recipe-container');
   const recipeGridView = new RecipeGridView(container, singleRecipe);
   recipeGridView.bindEvents();
 
-  const recipeDetailView = new RecipeDetailView();
+  const recipeDetailView = new RecipeDetailView(singleRecipe);
   recipeDetailView.bindEvents();
 
   const selectElement = document.querySelector('.content-inner-diet');
