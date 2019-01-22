@@ -22,19 +22,12 @@ RecipeGridView.prototype.bindEvents = function () {
   createForm = document.querySelector('button.lbl-toggle');
   createForm.addEventListener('click', (event) => {
     form = new RecipeBookView(this.container)
-    PubSub.publish('RecipeBookView:recipe-form', form)
-    console.log(form);
+    form.renderForm()
   })
 
-
-  PubSub.subscribe('Recipes:all-book-data', (event) => {
-    // const allBookRecipes = this.render(event.detail);
-    //
-    // recipe = this.renderRecipe(this.singleRecipe)
-    // PubSub.publish('RecipeGridView:recipe-selected', recipe);
-  });
-
 };
+
+
 RecipeGridView.prototype.renderCategory = function (recipes) {
   recipes.forEach((recipe) => {
     const recipeThumbnailView = new RecipeThumbnailView(this.singleRecipe);

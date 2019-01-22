@@ -1,7 +1,27 @@
-# `#main-header-container {
+##main-header-container {
   margin: 5px;
   position: relative;
   display: inline-block;
+
+}
+
+div.recipes {
+  
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+
+}
+
+img {
+  width: 60px;
+  height: 60px;
+
+}
+
+input {
+  display: flex;
 }
 
 
@@ -35,7 +55,7 @@ width: 90%;
 
 
 .text-wrapper {
-  font-family: snappy service NF;
+  font-family: 'Raleway', sans-serif;
   position: absolute;
   bottom: 30px;
   left:20px;
@@ -82,8 +102,12 @@ width: 90%;
   margin-bottom: 1.2rem 0;
 }
 
+header {
+  align-items: center;
+}
+
 h1 {
-  font-family: snappy service NF;
+  font-family: 'Raleway', sans-serif;
   font-size: 80px;
   padding: 10px;
 }

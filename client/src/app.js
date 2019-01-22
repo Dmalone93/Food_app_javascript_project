@@ -9,7 +9,7 @@ const RecipeBookView = require('./views/recipe_book_view.js');
 document.addEventListener('DOMContentLoaded', () => {
   ('Javascript Loaded');
   const header = document.querySelector('.searches');
-  header.style.backgroundImage = "url('./images/vegetables.jpg')"
+  header.style.backgroundImage = "url('./images/wallpaper.jpg')"
 
 
 
@@ -37,7 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectView = new SelectView(selectElement);
   selectView.bindEvents();
 
-  const recipeBookView = new RecipeBookView(container);
+  const recipeBookView = new RecipeBookView(url);
+
 
 
 
