@@ -16,6 +16,7 @@ RecipeBookView.prototype.renderForm = function(recipe){
   this.container.innerHTML = ''
 
   const personalRecipe = document.createElement('form')
+  personalRecipe.setAttribute('id', 'recipe-form')
 
 
   // recipe_name:"1",
@@ -45,7 +46,6 @@ RecipeBookView.prototype.renderForm = function(recipe){
   // servings: 1,
   const serving = document.createElement('input');
   serving.setAttribute('class', 'serving');
-  serving.textContent =
   personalRecipe.appendChild(serving)
 
 
@@ -62,6 +62,7 @@ RecipeBookView.prototype.renderForm = function(recipe){
 
   const submitButton = document.createElement('button');
   submitButton.setAttribute('id', 'new-recipe-btn');
+  submitButton.textContent = 'Add in Recipe'
   personalRecipe.appendChild(submitButton)
   //
 

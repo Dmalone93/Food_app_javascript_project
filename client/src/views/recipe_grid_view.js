@@ -19,10 +19,29 @@ RecipeGridView.prototype.bindEvents = function () {
     console.log(event.detail);
   });
 
-  createForm = document.querySelector('button.lbl-toggle');
+  const createForm = document.querySelector('button.lbl-toggle');
   createForm.addEventListener('click', (event) => {
     form = new RecipeBookView(this.container)
-    form.renderForm()
+    form.renderForm();
+  const recipeform = document.querySelector('#recipe-form');
+  recipeform.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const recipeObject = {
+      recipe_name: event.target['recipe-name'].value,
+      ingredients: event.target['ingredients'].value,
+      prep_time: event.target['pret-time'].value,
+      cook_time: event.target['cook-time'].value,
+      servings: event.target['serving'].value,
+      diet: event.target['diet'].value,
+      cook_method: event.target['cook-method'].value
+    };
+
+    PubSub.publish('RecipeGridView: new-personal-recipe', recipeObject);
+  })
+
+
+
   })
 
 };
