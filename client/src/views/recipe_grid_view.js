@@ -25,7 +25,8 @@ RecipeGridView.prototype.bindEvents = function () {
     form.renderForm();
   const recipeform = document.querySelector('#recipe-form');
   recipeform.addEventListener('submit', (event) => {
-    event.preventDefault();
+    event.preventDefault()
+    console.log(event.target);
 
     const recipeObject = {
       recipe_name: event.target['recipe-name'].value,
@@ -36,7 +37,7 @@ RecipeGridView.prototype.bindEvents = function () {
       diet: event.target['diet'].value,
       cook_method: event.target['cook-method'].value
     };
-
+    console.log(recipeObject);
     PubSub.publish('RecipeGridView: new-personal-recipe', recipeObject);
   })
 

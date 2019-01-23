@@ -23,7 +23,7 @@ div#recipe-text {
 }
 
 div.all-recipes {
-  margin-left: 40px
+  margin-left: 40px;
 }
 
 img#bowl {
@@ -165,6 +165,7 @@ button#new-recipe-btn {
   transition: all 0.25s ease-out;
   cursor: auto;
   border: 1px solid black;
+  border-radius: 3px;
 }
 
 .lbl-toggle:hover {
