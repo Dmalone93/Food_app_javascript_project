@@ -1,6 +1,7 @@
 const PubSub = require('../helpers/pub_sub.js');
 const RecipeThumbnailView = require('./recipe_thumbnail_view.js');
 const RecipeDetailView = require('./recipe_detail_view.js')
+const RecipeBookView = require('./recipe_book_view.js')
 
 const RecipeGridView = function (container) {
   this.container = container;
@@ -10,7 +11,6 @@ const RecipeGridView = function (container) {
 RecipeGridView.prototype.bindEvents = function () {
   PubSub.subscribe('Recipes:all-data', (event) => {
     this.render(event.detail);
-    // (event.detail);
   });
 
   PubSub.subscribe('Recipes:recipe-by-diet', (event) => {
@@ -18,18 +18,32 @@ RecipeGridView.prototype.bindEvents = function () {
     console.log(event.detail);
   });
 
+  const createForm = document.querySelector('label.lbl-toggle');
+  createForm.addEventListener('click', (event) => {
+    form = new RecipeBookView(this.container)
+    form.renderForm();
+    const recipeform = document.querySelector('#recipe-form');
+    recipeform.addEventListener('submit', (event) => {
+      event.preventDefault()
+      console.log(event.target);
 
-  PubSub.subscribe('Recipes:all-book-data', (event) => {
-    // const allBookRecipes = this.render(event.detail);
-    //
-    // recipe = this.renderRecipe(this.singleRecipe)
-    // PubSub.publish('RecipeGridView:recipe-selected', recipe);
-  });
+      const recipeObject = {
+        recipe_name: event.target['recipe-name'].value,
+        ingredients: event.target['ingredients'].value,
+        prep_time: event.target['pret-time'].value,
+        cook_time: event.target['cook-time'].value,
+        servings: event.target['serving'].value,
+        diet: event.target['diet'].value,
+        cook_method: event.target['cook-method'].value
+      };
+      console.log(recipeObject);
+      PubSub.publish('RecipeGridView: new-personal-recipe', recipeObject);
+    })
+  })
 
 };
 
-//check if all diet types in the recipes in the render function are the same. Then you dont need to limit the recipes. If any of diet types are different from each other.
-//Then you want to limit the recipes.
+
 RecipeGridView.prototype.renderCategory = function (recipes) {
   this.container.innerHTML = '';
   recipes.forEach((recipe) => {
@@ -47,22 +61,23 @@ RecipeGridView.prototype.render = function (recipes) {
 };
 
 RecipeGridView.prototype.limitRecipes = function(recipes){
-  console.log('recipes', recipes);
   const randomNumbers = [];
   for(let i=0; i < 6; i++){
-    const randomNumber = Math.floor(Math.random() * recipes.length)
-    randomNumbers.push(randomNumber);
+    const randomNumber = Math.floor(Math.random() * recipes.length);
+    if (randomNumbers.includes(randomNumber)){
+      i--;
+    } else {
+      randomNumbers.push(randomNumber);
+    }
   };
-
   const limitedRecipes = [];
   randomNumbers.forEach((randomNumber) => {
-
     const recipe = recipes[randomNumber];
     limitedRecipes.push(recipe);
   });
-
   return limitedRecipes;
 };
+
 
 RecipeGridView.prototype.renderRecipe = function(recipe){
   const recipeDetail = new RecipeDetailView()

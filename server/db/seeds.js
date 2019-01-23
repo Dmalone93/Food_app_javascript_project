@@ -223,7 +223,7 @@ db.recipes.insertMany([
 
     cook_method: "Heat a large wide pan and dry-fry the curry paste with the onions for 4-5 mins until the onion begins to soften. Add the rice to the pan and stir to coat in the curry paste. Add the stock, then bring to the boil. Cover the pan and turn the heat down to low. Leave the rice to simmer slowly for 12-15 mins until all the liquid has been absorbed and the rice is cooked. Turn off the heat and stir in the prawns, peas and chilli. Cover the pan and leave to stand for 5 mins. Fluff up the rice grains with a fork and season if you want. Scatter over the coriander and serve with lemon wedges.",
 
-    image: "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2018/03/dairy-free-slaw.jpg?itok=BGjQTRaD"
+    image: "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--338957_11.jpg?itok=2f4OjYwU"
 
   },
 
@@ -619,7 +619,7 @@ db.recipes.insertMany([
 
     cook_method: "Roughly chop 1 large onion, transfer to a small food processor, and add 3 tbsp of water - process to a slack paste. You could use a stick blender for this or coarsely grate the onion into a bowl – there’s no need to add any water if you are grating the onion. Tip into a small bowl and leave on one side. Put 6 roughly chopped garlic cloves and 50g roughly chopped ginger into the same food processor and add 4 tbsp water – process until smooth and spoon into another small bowl. Alternatively, crush the garlic to a paste with a knife or garlic press and finely grate the ginger. Heat 4 tbsp vegetable oil in a wok or sturdy pan set over a medium heat. Combine 2 tsp cumin seeds and 1 tsp fennel seeds with a 5cm cinnamon stick and 1 tsp chilli flakes and add to the pan in one go. Swirl everything around for about 30 secs until the spices release a fragrant aroma. Add the onion paste – it will splutter in the beginning. Fry until the water evaporates and the onions turn a lovely dark golden - this should take about 7-8 mins. Add the garlic and ginger paste and cook for another 2 mins – stirring all the time. Stir in 1 tsp garam masala, 1 tsp turmeric, and 1 tsp caster sugar and continue cooking for 20 secs before tipping in a 400g can chopped tomatoes. Continue cooking on a medium heat for about 10 mins without a lid until the tomatoes reduce and darken. Cut 8 skinless, boneless chicken thighs into 3cm chunks and add to the pan once the tomatoes have thickened to a paste. Cook for 5 mins to coat the chicken in the masala and seal in the juices, and then pour over 250ml hot chicken stock. Simmer for 8-10 mins without a lid until the chicken is tender and the masala lightly thickened – you might need to add an extra ladleful of stock or water if the curry needs it.",
 
-    image: "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/user-collections/my-colelction-image/2015/12/recipe-image-legacy-id--1274503_8.jpg?itok=y2r-R0BV"
+    image: "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/user-collections/my-colelction-image/2015/12/recipe-image-legacy-id--908515_10.jpg?itok=rhm4Vwap"
 
   },
 

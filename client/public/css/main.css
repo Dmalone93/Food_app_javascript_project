@@ -1,13 +1,59 @@
-# `#main-header-container {
+##main-header-container {
   margin: 5px;
   position: relative;
   display: inline-block;
+
 }
 
+div.recipes {
+
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+
+}
+
+input {
+  display: flex;
+}
+
+div#recipe-text {
+
+}
+
+div.all-recipes {
+  margin-left: 40px;
+}
+
+img#bowl {
+  height: 60px;
+  width: 60px;
+  margin: 10px;
+}
+
+img {
+  padding-left: 20px;
+  border-radius: 10%;
+  margin-top: 10px;
+}
+
+p {
+  text-align: left;
+  font-size: 25px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+li {
+  font-size: 25px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
 
 .searches {
   position: relative;
-  min-height: 100%;
+  height:300px;
   background-size: cover;
   display: flex;
   flex-direction: row;
@@ -35,7 +81,7 @@ width: 90%;
 
 
 .text-wrapper {
-  font-family: snappy service NF;
+  font-family: 'Raleway', sans-serif;
   position: absolute;
   bottom: 30px;
   left:20px;
@@ -54,11 +100,12 @@ width: 90%;
 
 .all-recipes:hover .text-wrapper {
   opacity: 1;
+
 }
 
 #thumbnail {
   display: inline-block;
-  font-family: snappy service NF;
+  font-family: 'Raleway', sans-serif;
   position: relative;
   text-align: center;
   color: white;
@@ -82,11 +129,30 @@ width: 90%;
   margin-bottom: 1.2rem 0;
 }
 
-h1 {
-  font-family: snappy service NF;
-  font-size: 80px;
-  padding: 10px;
+header {
+  align-items: center;
+    font-family: 'Raleway', sans-serif;
 }
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 80px;
+
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover
+{
+     color:#00A0C6;
+     text-decoration:none;
+     cursor:pointer;
+}
+
+
 
 input[type='checkbox'] {
   display: none;
@@ -94,17 +160,40 @@ input[type='checkbox'] {
 
 
 
+button#add-favourite-recipe {
+
+  font-family: 'Raleway', sans-serif;
+  background-color: darkgreen;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  color: white;
+  border-radius: 5px;
+  width  : 176px;
+}
+
+button#new-recipe-btn {
+  background-color: darkgreen;
+  font-size: 16px;
+  margin-top: 10px;
+  color: white;
+  border-radius: 5px;
+  width  : 176px;
+}
+
+
 .lbl-toggle {
   display: block;
   font-weight: bold;
-  font-family: monospace;
-  font-size: 1.2rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.0rem;
   text-transform: uppercase;
-  text-align: center;
+  text-align: right;
   padding: 1rem;
   color: rgb(0, 0, 0);
   transition: all 0.25s ease-out;
   cursor: auto;
+  border-radius: 3px;
 }
 
 .lbl-toggle:hover {
@@ -134,7 +223,7 @@ input[type='checkbox'] {
 
 
 .collapsible-content {
-  font-family: monospace;
+  font-family: 'Raleway', sans-serif;
   max-height: 0px;
   overflow: hidden;
   transition: max-height .25s ease-in-out;
@@ -172,8 +261,12 @@ input[type='checkbox'] {
 }
 
 
+
+
+
+
 #diet {
-  font-family: monospace;
+  font-family: 'Raleway', sans-serif;
   display: block;
   width: 115px;
   height: 30px;

@@ -12,16 +12,21 @@ SelectView.prototype.bindEvents = function(){
     const selectedDiet = event.target.value;
     PubSub.publish('SelectView:diet-selected', selectedDiet);
   })
+
+  // 'id#ing-search'.addEventListener('click', (event) => {
+  //   const searchRecipe = event.target.value;
+  //   PubSub.publish('SelectView:recipe-search', searchRecipe)
+  //   console.log('hello', searchRecipe);
+  // })
+
 }
 
-
-
 SelectView.prototype.populate = function(recipes){
+
   const uniqueDiets = []
   recipes.forEach((recipe) => {
     if (!uniqueDiets.includes(recipe.diet)){
       uniqueDiets.push(recipe.diet)
-      console.log(uniqueDiets);
     }
   })
   uniqueDiets.forEach((diet) => {
