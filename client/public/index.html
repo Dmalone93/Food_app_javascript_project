@@ -17,6 +17,7 @@
 
   <div id="main-header-container">
     <section id ="main" class="searches">
+
       <header><h1 id="title">.chomp</h1>
         <img id="bowl" src="./images/logo.png" alt="logo">
       </header>
@@ -27,10 +28,13 @@
         <div class="collapsible-content">
           <div class="content-inner">
             <h3 class="collapsible-header"></h3>
-            <input class="input" placeholder="Ingredient"><br><br>
-          </div>
+          <input class="input" placeholder="Ingredient" role="search"><br><br>
+          <input id="ing-search" class="btn-search" type="submit" value="search">
+          <!-- <input class="input" placeholder="Ingredient"><br><br>
+          <input class="input" placeholder="Ingredient"><br><br> -->
         </div>
       </div>
+
 
       <div class="diet-collabsible">
         <input id="collapsible2" class="toggle" type="checkbox">
@@ -40,6 +44,7 @@
             <option selected-disabled>Please Select Diet</option>
           </select>
         </div>
+
       </div>
 
       <div class="recipe-book">

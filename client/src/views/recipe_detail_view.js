@@ -6,12 +6,18 @@ const RecipeDetailView = function (container) {
 
 RecipeDetailView.prototype.bindEvents = function(){
 
+  this.container.addEventListener('click', (event) => {
+    (event.target.value);
+  });
+
+
   PubSub.subscribe('RecipeThumbnailView:recipe-selected', (event) => {
     this.createRecipe(event.detail)
   });
   PubSub.subscribe('RecipeGridView: new-personal-recipe', (event) => {
     this.createRecipe(event.detail);
   })
+
 
 };
 
@@ -34,11 +40,19 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   header.textContent = recipe.recipe_name;
   containerDiv.appendChild(header);
 
+  const button = document.createElement('button');
+  button.classList.add('add-recipe');
+  button.value = recipe.id;
+  recipeDiv.appendChild(button);
+  button.addEventListener('click', (event) => {
+    const selectedIndex = event.target.value;
+    PubSub.publish('RecipeDetailView:recipe-added', selectedIndex);
+  });
+
 
   const prepTime = document.createElement('li');
   prepTime.textContent = `Preperation Time: ${recipe.prep_time}`;
   containerDiv.appendChild(prepTime);
-
 
 
   const cookTime = document.createElement('li');
@@ -46,11 +60,9 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   containerDiv.appendChild(cookTime);
 
 
-
   const servings = document.createElement('li');
   servings.textContent = `Servings: ${recipe.servings}`;
   containerDiv.appendChild(servings);
-
 
 
   const cookMethod = document.createElement('p');
@@ -79,8 +91,6 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
     PubSub.publish('RecipeDetailView:recipe-submitted', event.target.value)
     containerDiv.appendChild(button);
   });
-
-
 
   ('container', this.container);
   containerDiv.appendChild(recipeDiv)

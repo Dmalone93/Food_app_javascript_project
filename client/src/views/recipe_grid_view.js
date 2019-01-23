@@ -3,9 +3,8 @@ const RecipeThumbnailView = require('./recipe_thumbnail_view.js');
 const RecipeDetailView = require('./recipe_detail_view.js')
 const RecipeBookView = require('./recipe_book_view.js')
 
-const RecipeGridView = function (container, singleRecipe) {
+const RecipeGridView = function (container) {
   this.container = container;
-  this.singleRecipe = singleRecipe;
 };
 
 
@@ -49,23 +48,22 @@ RecipeGridView.prototype.bindEvents = function () {
 
 
 RecipeGridView.prototype.renderCategory = function (recipes) {
+  this.container.innerHTML = '';
   recipes.forEach((recipe) => {
-    const recipeThumbnailView = new RecipeThumbnailView(this.singleRecipe);
+    const recipeThumbnailView = new RecipeThumbnailView(this.container);
     recipeThumbnailView.render(recipe);
   });
 };
 
 RecipeGridView.prototype.render = function (recipes) {
   const limitedRecipes = this.limitRecipes(recipes)
-  console.log('limitedRecipes', limitedRecipes);
   limitedRecipes.forEach((recipe) => {
-    const recipeThumbnailView = new RecipeThumbnailView(this.singleRecipe);
+    const recipeThumbnailView = new RecipeThumbnailView(this.container);
     recipeThumbnailView.render(recipe);
   });
 };
 
 RecipeGridView.prototype.limitRecipes = function(recipes){
-  console.log('recipes', recipes);
   const randomNumbers = [];
   for(let i=0; i < 6; i++){
     const randomNumber = Math.floor(Math.random() * recipes.length)

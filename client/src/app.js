@@ -9,7 +9,12 @@ const RecipeBookView = require('./views/recipe_book_view.js');
 document.addEventListener('DOMContentLoaded', () => {
   ('Javascript Loaded');
   const header = document.querySelector('.searches');
+
   header.style.backgroundImage = "url('./images/wallpaper.jpg')"
+
+  //header.style.backgroundImage = "url('./images/vegetables.jpg')"
+
+
 
 
   const url = 'http://localhost:3000/api/recipes';
@@ -18,14 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
   recipes.getData();
   recipes.getBookData();
   recipes.bindEvents();
+  recipes.createBook();
 
 
-  const container = document.querySelector('div.recipes');
-  const singleRecipe = document.querySelector('div#recipe-container');
-  const recipeGridView = new RecipeGridView(container, singleRecipe);
+
+
+  const container = document.querySelector('#recipe-container');
+
+  const recipeGridView = new RecipeGridView(container);
   recipeGridView.bindEvents();
 
-
+  const singleRecipe = document.querySelector('div#recipe-container');
+  
+  
+ 
+  
+  
   const recipeDetailView = new RecipeDetailView(singleRecipe);
   recipeDetailView.bindEvents();
 
