@@ -4,6 +4,7 @@ const RecipeThumbnailView = require('./views/recipe_thumbnail_view.js');
 const Recipes = require('./models/recipes.js');
 const SelectView = require('./views/select_view.js');
 const RecipeBookView = require('./views/recipe_book_view.js');
+const SearchView = require('./views/search_view.js');
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,11 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
   recipeGridView.bindEvents();
 
   const singleRecipe = document.querySelector('div#recipe-container');
-  
-  
- 
-  
-  
+
+
+
+
+
   const recipeDetailView = new RecipeDetailView(singleRecipe);
   recipeDetailView.bindEvents();
 
@@ -48,5 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
   selectView.bindEvents();
 
   const recipeBookView = new RecipeBookView();
+
+  const searchForm = document.querySelector('.search-ing')
+  const searchView = new SearchView(searchForm);
+  searchView.bindEvents();
 
 });
