@@ -13,14 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
   const url = 'http://localhost:3000/api/recipes';
   const recipeBookUrl = 'http://localhost:3000/api/recipeBook'
   const recipes = new Recipes(url, recipeBookUrl);
   recipes.getData();
   recipes.getBookData();
   recipes.bindEvents();
+  recipes.createBook();
 
 
 
