@@ -41,7 +41,7 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   containerDiv.appendChild(header);
 
   const button = document.createElement('button');
-  button.classList.add('add-recipe');
+  button.classList.add('add-favourite-recipe');
   button.value = recipe.id;
   containerDiv.appendChild(button);
   button.addEventListener('click', (event) => {
