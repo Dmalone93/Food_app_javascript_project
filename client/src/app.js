@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   header.style.backgroundImage = "url('./images/vegetables.jpg')"
 
 
-
-
   const url = 'http://localhost:3000/api/recipes';
 
   const recipeBookUrl = 'http://localhost:3000/api/recipeBook'

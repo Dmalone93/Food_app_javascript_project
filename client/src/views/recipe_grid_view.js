@@ -2,9 +2,8 @@ const PubSub = require('../helpers/pub_sub.js');
 const RecipeThumbnailView = require('./recipe_thumbnail_view.js');
 const RecipeDetailView = require('./recipe_detail_view.js')
 
-const RecipeGridView = function (container, singleRecipe) {
+const RecipeGridView = function (container) {
   this.container = container;
-  this.singleRecipe = singleRecipe;
 };
 
 
@@ -32,8 +31,9 @@ RecipeGridView.prototype.bindEvents = function () {
 //check if all diet types in the recipes in the render function are the same. Then you dont need to limit the recipes. If any of diet types are different from each other.
 //Then you want to limit the recipes.
 RecipeGridView.prototype.renderCategory = function (recipes) {
+  this.container.innerHTML = '';
   recipes.forEach((recipe) => {
-    const recipeThumbnailView = new RecipeThumbnailView(this.singleRecipe);
+    const recipeThumbnailView = new RecipeThumbnailView(this.container);
     recipeThumbnailView.render(recipe);
   });
 };
@@ -42,7 +42,7 @@ RecipeGridView.prototype.render = function (recipes) {
   const limitedRecipes = this.limitRecipes(recipes)
   console.log('limitedRecipes', limitedRecipes);
   limitedRecipes.forEach((recipe) => {
-    const recipeThumbnailView = new RecipeThumbnailView(this.singleRecipe);
+    const recipeThumbnailView = new RecipeThumbnailView(this.container);
     recipeThumbnailView.render(recipe);
   });
 };

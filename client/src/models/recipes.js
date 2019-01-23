@@ -10,7 +10,7 @@ const Recipes = function(url, recipeBookUrl){
   this.request = new RequestHelper(this.url);
   this.bookRequest = new RequestHelper(this.recipeBookUrl);
   this.recipes = [];
-  this.originalRecipe = null;
+  this.bookRecipes = [];
 }
 
 Recipes.prototype.bindEvents = function () {
@@ -21,19 +21,25 @@ Recipes.prototype.bindEvents = function () {
   })
   PubSub.subscribe('RecipeDetailView:recipe-added', (event) => {
     const selectedIndex = event.detail;
-    const recipe = this.createBook(selectedIndex);
-    console.log(event.detail);
+    console.log('recipe?', this.recipes[selectedIndex - 1]);
+    const recipe = this.recipes[selectedIndex - 1];
+    this.createBook(recipe);
     PubSub.publish('Recipes:added-from-api', recipe)
-    console.log(recipe);
   });
 };
 
-Recipes.prototype.createBook = function (searchName) {
-  const foundRecipe = this.recipes.find((currentRecipe) => {
-    return currentRecipe.name === searchName;
+Recipes.prototype.createBook = function (recipe) {
+  this.bookRequest.post(recipe)
+  .then((recipeBook) => {
+    PubSub.publish('Recipes:added-favourite-receipe', recipeBook);
+
   })
-  return foundRecipe;
+  .catch(console.error);
+// use the this.bookRequest to POST (request_helper) the recipe book collection
 };
+
+
+
 
 
 
