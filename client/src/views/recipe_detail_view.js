@@ -43,7 +43,7 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   const button = document.createElement('button');
   button.classList.add('add-favourite-recipe');
   button.value = recipe.id;
-  recipeDiv.appendChild(button);
+  containerDiv.appendChild(button);
   button.addEventListener('click', (event) => {
     const selectedIndex = event.target.value;
     PubSub.publish('RecipeDetailView:recipe-added', selectedIndex);
@@ -89,7 +89,7 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
 
   formButton.addEventListener('click', (event) => {
     PubSub.publish('RecipeDetailView:recipe-submitted', event.target.value)
-    containerDiv.appendChild(button);
+    containerDiv.appendChild(formButton);
   });
 
   ('container', this.container);
