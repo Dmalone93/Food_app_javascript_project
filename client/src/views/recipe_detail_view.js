@@ -17,14 +17,10 @@ RecipeDetailView.prototype.bindEvents = function(){
   PubSub.subscribe('RecipeGridView: new-personal-recipe', (event) => {
     this.createRecipe(event.detail);
   })
-
-
 };
-
 
 RecipeDetailView.prototype.createRecipe = function (recipe) {
   this.container.innerHTML = ''
-
 
   const containerDiv = document.createElement('div')
   containerDiv.setAttribute('id', 'recipe-text')
@@ -41,9 +37,11 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   containerDiv.appendChild(header);
 
   const button = document.createElement('button');
-  button.classList.add('add-recipe');
+  button.classList.add('add-favourite-recipe');
+  button.setAttribute('id', 'add-favourite-recipe');
+  button.textContent = 'Add to Recipe Book';
   button.value = recipe.id;
-  recipeDiv.appendChild(button);
+  containerDiv.appendChild(button);
   button.addEventListener('click', (event) => {
     const selectedIndex = event.target.value;
     PubSub.publish('RecipeDetailView:recipe-added', selectedIndex);
@@ -83,13 +81,13 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
   containerDiv.appendChild(diet);
 
 
-  const button = document.createElement('button');
-  button.classList.add('add-recipe');
-  button.value = recipe.id;
+  const formButton = document.createElement('button');
+  formButton.classList.add('add-recipe');
+  formButton.value = recipe.id;
 
-  button.addEventListener('click', (event) => {
+  formButton.addEventListener('click', (event) => {
     PubSub.publish('RecipeDetailView:recipe-submitted', event.target.value)
-    containerDiv.appendChild(button);
+    containerDiv.appendChild(formButton);
   });
 
   ('container', this.container);
