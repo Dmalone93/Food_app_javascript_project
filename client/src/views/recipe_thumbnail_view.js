@@ -2,11 +2,9 @@ const PubSub = require('../helpers/pub_sub.js');
 
 const RecipeThumbnailView = function (container) {
   this.container = container;
-  (this.container);
 }
 
 RecipeThumbnailView.prototype.render = function (recipe) {
-  (recipe);
 
   const recipeWrapper = document.createElement('div');
   recipeWrapper.classList.add('all-recipes')

@@ -9,7 +9,11 @@ const RecipeBookView = require('./views/recipe_book_view.js');
 document.addEventListener('DOMContentLoaded', () => {
   ('Javascript Loaded');
   const header = document.querySelector('.searches');
-  header.style.backgroundImage = "url('./images/vegetables.jpg')"
+
+  header.style.backgroundImage = "url('./images/wallpaper.jpg')"
+
+  //header.style.backgroundImage = "url('./images/vegetables.jpg')"
+
 
 
 
@@ -43,23 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectView = new SelectView(selectElement);
   selectView.bindEvents();
 
-  const recipeBookView = new RecipeBookView(container);
-
-
-
-  // 1. Loop through the category buttons (forEach)
-  // 2. Add an event listener to each button
-  // 3. Within the event listener, publish the type of diet selected as the payload
-  // 4. Subscribe to this in the recipes model
-  // 5. Within the subscribe, the model should find all the recipes of the selected diet
-  // 6. Publish those recipes to the grid view
-  // 7. Subscribed to by grid view
-  // 8. Renders the recipes
-
-  // Select:
-  // 1. Listen for an on change in the select
-  // FOllow steps 3 - 8 above!
-
-
+  const recipeBookView = new RecipeBookView();
 
 });

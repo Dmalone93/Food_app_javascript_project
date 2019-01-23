@@ -18,22 +18,35 @@ RecipeGridView.prototype.bindEvents = function () {
     console.log(event.detail);
   });
 
-  createForm = document.querySelector('button.lbl-toggle');
+  const createForm = document.querySelector('button.lbl-toggle');
   createForm.addEventListener('click', (event) => {
     form = new RecipeBookView(this.container)
-    PubSub.publish('RecipeBookView:recipe-form', form)
-    console.log(form);
+    form.renderForm();
+  const recipeform = document.querySelector('#recipe-form');
+  recipeform.addEventListener('submit', (event) => {
+    event.preventDefault()
+    console.log(event.target);
+
+    const recipeObject = {
+      recipe_name: event.target['recipe-name'].value,
+      ingredients: event.target['ingredients'].value,
+      prep_time: event.target['pret-time'].value,
+      cook_time: event.target['cook-time'].value,
+      servings: event.target['serving'].value,
+      diet: event.target['diet'].value,
+      cook_method: event.target['cook-method'].value
+    };
+    console.log(recipeObject);
+    PubSub.publish('RecipeGridView: new-personal-recipe', recipeObject);
   })
 
 
-  PubSub.subscribe('Recipes:all-book-data', (event) => {
-    // const allBookRecipes = this.render(event.detail);
-    //
-    // recipe = this.renderRecipe(this.singleRecipe)
-    // PubSub.publish('RecipeGridView:recipe-selected', recipe);
-  });
+
+  })
 
 };
+
+
 RecipeGridView.prototype.renderCategory = function (recipes) {
   this.container.innerHTML = '';
   recipes.forEach((recipe) => {
