@@ -1,6 +1,7 @@
 const PubSub = require('../helpers/pub_sub.js');
 const RecipeThumbnailView = require('./recipe_thumbnail_view.js');
 const RecipeDetailView = require('./recipe_detail_view.js')
+const RecipeBookView = require('./recipe_book_view.js')
 
 const RecipeGridView = function (container) {
   this.container = container;
@@ -10,13 +11,19 @@ const RecipeGridView = function (container) {
 RecipeGridView.prototype.bindEvents = function () {
   PubSub.subscribe('Recipes:all-data', (event) => {
     this.render(event.detail);
-    // (event.detail);
   });
 
   PubSub.subscribe('Recipes:recipe-by-diet', (event) => {
     this.renderCategory(event.detail);
     console.log(event.detail);
   });
+
+  createForm = document.querySelector('button.lbl-toggle');
+  createForm.addEventListener('click', (event) => {
+    form = new RecipeBookView(this.container)
+    PubSub.publish('RecipeBookView:recipe-form', form)
+    console.log(form);
+  })
 
 
   PubSub.subscribe('Recipes:all-book-data', (event) => {
@@ -27,9 +34,6 @@ RecipeGridView.prototype.bindEvents = function () {
   });
 
 };
-
-//check if all diet types in the recipes in the render function are the same. Then you dont need to limit the recipes. If any of diet types are different from each other.
-//Then you want to limit the recipes.
 RecipeGridView.prototype.renderCategory = function (recipes) {
   this.container.innerHTML = '';
   recipes.forEach((recipe) => {
@@ -40,7 +44,6 @@ RecipeGridView.prototype.renderCategory = function (recipes) {
 
 RecipeGridView.prototype.render = function (recipes) {
   const limitedRecipes = this.limitRecipes(recipes)
-  console.log('limitedRecipes', limitedRecipes);
   limitedRecipes.forEach((recipe) => {
     const recipeThumbnailView = new RecipeThumbnailView(this.container);
     recipeThumbnailView.render(recipe);
@@ -48,22 +51,19 @@ RecipeGridView.prototype.render = function (recipes) {
 };
 
 RecipeGridView.prototype.limitRecipes = function(recipes){
-  console.log('recipes', recipes);
   const randomNumbers = [];
   for(let i=0; i < 6; i++){
     const randomNumber = Math.floor(Math.random() * recipes.length)
     randomNumbers.push(randomNumber);
   };
-
   const limitedRecipes = [];
   randomNumbers.forEach((randomNumber) => {
-
     const recipe = recipes[randomNumber];
     limitedRecipes.push(recipe);
   });
-
   return limitedRecipes;
 };
+
 
 RecipeGridView.prototype.renderRecipe = function(recipe){
   const recipeDetail = new RecipeDetailView()

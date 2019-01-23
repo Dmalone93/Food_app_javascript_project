@@ -26,6 +26,11 @@ Recipes.prototype.bindEvents = function () {
     this.createBook(recipe);
     PubSub.publish('Recipes:added-from-api', recipe)
   });
+  PubSub.subscribe('SelectView:recipe-search', (event) => {
+    const ingredient = event.detail;
+    const foundIngredient = this.findIngredient(ingredient);
+    PubSub.publish('RecipeDetailView:recipe-by-ingredient', foundIngredient);
+  });
 };
 
 Recipes.prototype.createBook = function (recipe) {
@@ -65,6 +70,15 @@ Recipes.prototype.findByDiet = function(searchDiet){
     return diet.diet === searchDiet;
   })
   return foundDiet;
+}
+
+Recipes.prototype.findIngredient = function(recipes, ingredient){
+  const includesIngredient = []
+  recipes.forEach((recipe) => {
+    if (ingredient === recipe.ingredients){
+      includesIngredient.push(recipe)
+    }
+  })
 }
 
 
