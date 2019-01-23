@@ -1,6 +1,7 @@
 const RequestHelper = require('../helpers/request_helpers.js');
 const PubSub = require('../helpers/pub_sub.js');
 const SelectView = require('../views/select_view.js');
+const SearchView = require('../views/search_view.js')
 
 
 const Recipes = function(url, recipeBookUrl){
@@ -26,7 +27,7 @@ Recipes.prototype.bindEvents = function () {
     this.createBook(recipe);
     PubSub.publish('Recipes:added-from-api', recipe)
   });
-  PubSub.subscribe('SelectView:recipe-search', (event) => {
+  PubSub.subscribe('SearchView:recipe-search', (event) => {
     const ingredient = event.detail;
     const foundIngredient = this.findIngredient(ingredient);
     PubSub.publish('RecipeDetailView:recipe-by-ingredient', foundIngredient);

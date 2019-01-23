@@ -38,8 +38,10 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
 
   const button = document.createElement('button');
   button.classList.add('add-favourite-recipe');
+
   button.setAttribute('id', 'add-favourite-recipe');
   button.textContent = 'Add to Recipe Book';
+
   button.value = recipe.id;
   containerDiv.appendChild(button);
   button.addEventListener('click', (event) => {

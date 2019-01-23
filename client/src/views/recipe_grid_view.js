@@ -22,26 +22,23 @@ RecipeGridView.prototype.bindEvents = function () {
   createForm.addEventListener('click', (event) => {
     form = new RecipeBookView(this.container)
     form.renderForm();
-  const recipeform = document.querySelector('#recipe-form');
-  recipeform.addEventListener('submit', (event) => {
-    event.preventDefault()
-    console.log(event.target);
+    const recipeform = document.querySelector('#recipe-form');
+    recipeform.addEventListener('submit', (event) => {
+      event.preventDefault()
+      console.log(event.target);
 
-    const recipeObject = {
-      recipe_name: event.target['recipe-name'].value,
-      ingredients: event.target['ingredients'].value,
-      prep_time: event.target['pret-time'].value,
-      cook_time: event.target['cook-time'].value,
-      servings: event.target['serving'].value,
-      diet: event.target['diet'].value,
-      cook_method: event.target['cook-method'].value
-    };
-    console.log(recipeObject);
-    PubSub.publish('RecipeGridView: new-personal-recipe', recipeObject);
-  })
-
-
-
+      const recipeObject = {
+        recipe_name: event.target['recipe-name'].value,
+        ingredients: event.target['ingredients'].value,
+        prep_time: event.target['pret-time'].value,
+        cook_time: event.target['cook-time'].value,
+        servings: event.target['serving'].value,
+        diet: event.target['diet'].value,
+        cook_method: event.target['cook-method'].value
+      };
+      console.log(recipeObject);
+      PubSub.publish('RecipeGridView: new-personal-recipe', recipeObject);
+    })
   })
 
 };
@@ -66,8 +63,12 @@ RecipeGridView.prototype.render = function (recipes) {
 RecipeGridView.prototype.limitRecipes = function(recipes){
   const randomNumbers = [];
   for(let i=0; i < 6; i++){
-    const randomNumber = Math.floor(Math.random() * recipes.length)
-    randomNumbers.push(randomNumber);
+    const randomNumber = Math.floor(Math.random() * recipes.length);
+    if (randomNumbers.includes(randomNumber)){
+      i--;
+    } else {
+      randomNumbers.push(randomNumber);
+    }
   };
   const limitedRecipes = [];
   randomNumbers.forEach((randomNumber) => {
