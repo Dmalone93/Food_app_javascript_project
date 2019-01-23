@@ -17,14 +17,10 @@ RecipeDetailView.prototype.bindEvents = function(){
   PubSub.subscribe('RecipeGridView: new-personal-recipe', (event) => {
     this.createRecipe(event.detail);
   })
-
-
 };
-
 
 RecipeDetailView.prototype.createRecipe = function (recipe) {
   this.container.innerHTML = ''
-
 
   const containerDiv = document.createElement('div')
   containerDiv.setAttribute('id', 'recipe-text')
@@ -42,6 +38,10 @@ RecipeDetailView.prototype.createRecipe = function (recipe) {
 
   const button = document.createElement('button');
   button.classList.add('add-favourite-recipe');
+
+  button.setAttribute('id', 'add-favourite-recipe');
+  button.textContent = 'Add to Recipe Book';
+
   button.value = recipe.id;
   containerDiv.appendChild(button);
   button.addEventListener('click', (event) => {

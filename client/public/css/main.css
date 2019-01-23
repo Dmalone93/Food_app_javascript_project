@@ -29,15 +29,18 @@ div.all-recipes {
 img#bowl {
   height: 60px;
   width: 60px;
+  margin: 10px;
 }
 
 img {
-  padding-top: 40px;
+
   padding-left: 20px;
+  border-radius: 10%;
+  margin: 10px, 10px;
 }
 
 p {
-  text-align: center;
+  text-align: left;
   font-size: 25px;
   padding-left: 40px;
   padding-right: 40px;
@@ -51,7 +54,7 @@ li {
 
 .searches {
   position: relative;
-  min-height: 100%;
+  height:300px;
   background-size: cover;
   display: flex;
   flex-direction: row;
@@ -103,7 +106,7 @@ width: 90%;
 
 #thumbnail {
   display: inline-block;
-  font-family: snappy service NF;
+  font-family: 'Raleway', sans-serif;
   position: relative;
   text-align: center;
   color: white;
@@ -135,11 +138,39 @@ header {
 h1 {
   font-family: 'Raleway', sans-serif;
   font-size: 80px;
-  padding: 10px;
+
 }
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover
+{
+     color:#00A0C6;
+     text-decoration:none;
+     cursor:pointer;
+}
+
+
 
 input[type='checkbox'] {
   display: none;
+}
+
+
+
+button#add-favourite-recipe {
+
+  font-family: 'Raleway', sans-serif;
+  background-color: darkgreen;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  color: white;
+  border-radius: 5px;
+  width  : 176px;
 }
 
 button#new-recipe-btn {
@@ -158,12 +189,11 @@ button#new-recipe-btn {
   font-family: 'Raleway', sans-serif;
   font-size: 1.0rem;
   text-transform: uppercase;
-  text-align: center;
+  text-align: right;
   padding: 1rem;
   color: rgb(0, 0, 0);
   transition: all 0.25s ease-out;
   cursor: auto;
-  border: 1px solid black;
   border-radius: 3px;
 }
 
@@ -194,7 +224,7 @@ button#new-recipe-btn {
 
 
 .collapsible-content {
-    font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif;
   max-height: 0px;
   overflow: hidden;
   transition: max-height .25s ease-in-out;
@@ -230,6 +260,10 @@ button#new-recipe-btn {
   border-bottom-right-radius: 7px;
   padding: .5rem 1rem;
 }
+
+
+
+
 
 
 #diet {

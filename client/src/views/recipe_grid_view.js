@@ -18,7 +18,7 @@ RecipeGridView.prototype.bindEvents = function () {
     console.log(event.detail);
   });
 
-  const createForm = document.querySelector('button.lbl-toggle');
+  const createForm = document.querySelector('label.lbl-toggle');
   createForm.addEventListener('click', (event) => {
     form = new RecipeBookView(this.container)
     form.renderForm();
