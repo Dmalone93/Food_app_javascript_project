@@ -18,6 +18,10 @@ RecipeGridView.prototype.bindEvents = function () {
     console.log(event.detail);
   });
 
+  PubSub.subscribe('RecipeDetailView:recipe-by-ingredient', (event) => {
+    this.renderCategory(event.detail);
+  })
+
   const createForm = document.querySelector('label#myRecipeBook');
   createForm.addEventListener('click', (event) => {
     form = new RecipeBookView(this.container)
