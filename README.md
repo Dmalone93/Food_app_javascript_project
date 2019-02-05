@@ -1,4 +1,4 @@
-# Food_app_javascript_project
+# Chomp
 
 Recipe Finder App
 
