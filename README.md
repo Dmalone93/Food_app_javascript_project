@@ -26,3 +26,10 @@ A plus button in the thumbnail images will allow a quick add function to add to 
 
 
 ![](images/front_page.jpeg)
+
+
+## Authors
+
+*  [Declan Malone](https://github.com/Dmalone93)
+*  [Robin Bailey](https://github.com/RobinBailey84)
+*  [Louise Stewart](https://github.com/loustewart)
