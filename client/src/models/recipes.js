@@ -28,7 +28,7 @@ Recipes.prototype.bindEvents = function () {
     PubSub.publish('Recipes:added-from-api', recipe)
   });
   PubSub.subscribe('SearchView:recipe-search', (event) => {
-    const ingredient = event.detail;
+    const ingredient = event.detail.ingSearch;
     const foundIngredient = this.findIngredient(ingredient);
     PubSub.publish('RecipeDetailView:recipe-by-ingredient', foundIngredient);
   });
@@ -73,13 +73,18 @@ Recipes.prototype.findByDiet = function(searchDiet){
   return foundDiet;
 }
 
-Recipes.prototype.findIngredient = function(recipes, ingredient){
+Recipes.prototype.findIngredient = function(ingredient){
   const includesIngredient = []
-  recipes.forEach((recipe) => {
-    if (ingredient === recipe.ingredients){
-      includesIngredient.push(recipe)
-    }
+  this.recipes.forEach((recipe) => {
+    recipe.ingredients.forEach((fullIngredient) => {
+      if (fullIngredient.includes(ingredient)){
+        if (!includesIngredient.includes(recipe)){
+          includesIngredient.push(recipe)
+        }
+      }
+    })
   })
+  return includesIngredient;
 }
 
 
