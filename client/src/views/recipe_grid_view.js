@@ -61,17 +61,17 @@ RecipeGridView.prototype.render = function (recipes) {
 };
 
 RecipeGridView.prototype.limitRecipes = function(recipes){
-  const randomNumbers = [];
+  const randomNumbersArray = [];
   for(let i=0; i < 6; i++){
     const randomNumber = Math.floor(Math.random() * recipes.length);
-    if (randomNumbers.includes(randomNumber)){
+    if (randomNumbersArray.includes(randomNumber)){
       i--;
     } else {
-      randomNumbers.push(randomNumber);
+      randomNumbersArray.push(randomNumber);
     }
   };
   const limitedRecipes = [];
-  randomNumbers.forEach((randomNumber) => {
+  randomNumbersArray.forEach((randomNumber) => {
     const recipe = recipes[randomNumber];
     limitedRecipes.push(recipe);
   });

@@ -8,9 +8,7 @@ const SearchView = require('./views/search_view.js');
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  ('Javascript Loaded');
   const header = document.querySelector('.searches');
-
   header.style.backgroundImage = "url('./images/wallpaper.jpg')"
 
   //header.style.backgroundImage = "url('./images/vegetables.jpg')"
