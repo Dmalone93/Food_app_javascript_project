@@ -23,4 +23,4 @@ Extensions
 A plus button in the thumbnail images will allow a quick add function to add to the recipe book. Users can add comments to their recipes.
 
 
-![](images/ filename%20front_page.jpeg)
+![](images/ filename/front_page.jpeg)
