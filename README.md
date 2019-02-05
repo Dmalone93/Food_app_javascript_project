@@ -3,6 +3,7 @@
 Recipe Finder App
 
 MVP
+=
 
 
 Different options available for generating recipes including a random function.
@@ -14,6 +15,7 @@ User can add their own recipes to their ‘recipe book’.
 
 
 Extensions
+=
 A plus button in the thumbnail images will allow a quick add function to add to the recipe book.
 Users can add comments to their recipes.
 
