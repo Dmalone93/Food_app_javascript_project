@@ -30,9 +30,8 @@ A plus button in the thumbnail images will allow a quick add function to add to 
 
 ## Recipe Page
 
-![](images/recipe.jpeg)
 
-##Search by Diet
+## Search by Diet
 
 ![](images/search_by.jpeg)
 
